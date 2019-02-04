@@ -54,6 +54,7 @@ struct TinyGPSLocation
 {
    friend class TinyGPSPlus;
 public:
+   void invalidate() { valid = false; updated = false; }
    bool isValid() const    { return valid; }
    bool isUpdated() const  { return updated; }
    uint32_t age() const    { return valid ? millis() - lastCommitTime : (uint32_t)ULONG_MAX; }
